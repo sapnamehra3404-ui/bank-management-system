@@ -1,15 +1,11 @@
- HEAD
+ 
 from flask import Flask, render_template, request
 from bank import Bank
-
-from flask import Flask, render_template
-114b23f77cb906b9c75572438d9445dd2df48a9a
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-HEAD
     return render_template("index.html")
 
 @app.route('/create', methods=['GET','POST'])
@@ -26,9 +22,6 @@ def create():
         return result
     return render_template("create.html")
 
-
-from flask import request, render_template
-
 @app.route('/login', methods=['GET','POST'])
 def login():
     if request.method == 'POST':
@@ -36,21 +29,18 @@ def login():
         account = request.form.get('account')
         pin = request.form.get('pin')
 
-        # Empty field check
         if not account or not pin:
             return render_template("login.html", error="All fields are required!")
 
         obj = Bank()
         result = obj.Login(account, pin)
 
-        # Agar login fail hua
         if result == "Account not found":
             return render_template("login.html", error="Account not found!")
 
         if result == "Invalid PIN":
             return render_template("login.html", error="Wrong PIN!")
 
-        # Agar login success
         return render_template("login.html", success="Login Successful!")
 
     return render_template("login.html")
@@ -85,22 +75,8 @@ def withdraw():
             request.form['amount']
         )
         return result
-    return render_template("withdraw.html")   
+    return render_template("withdraw.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
 
-
-    return render_template('index.html')
-
-@app.route('/login')
-def login():
-    return render_template('login.html')
-
-@app.route('/deposit')
-def deposit():
-    return render_template('deposit.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
-114b23f77cb906b9c75572438d9445dd2df48a9a
