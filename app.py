@@ -1,15 +1,15 @@
-<<<<<<< HEAD
+ HEAD
 from flask import Flask, render_template, request
 from bank import Bank
-=======
+
 from flask import Flask, render_template
->>>>>>> 114b23f77cb906b9c75572438d9445dd2df48a9a
+114b23f77cb906b9c75572438d9445dd2df48a9a
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-<<<<<<< HEAD
+HEAD
     return render_template("index.html")
 
 @app.route('/create', methods=['GET','POST'])
@@ -90,7 +90,7 @@ def withdraw():
 if __name__ == "__main__":
     app.run(debug=True)
 
-=======
+
     return render_template('index.html')
 
 @app.route('/login')
@@ -103,4 +103,4 @@ def deposit():
 
 if __name__ == '__main__':
     app.run(debug=True)
->>>>>>> 114b23f77cb906b9c75572438d9445dd2df48a9a
+114b23f77cb906b9c75572438d9445dd2df48a9a
